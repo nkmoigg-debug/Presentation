@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Ссылка для дилера</title>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@900&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box}body{margin:0;min-height:100svh;display:flex;align-items:center;justify-content:center;background:#F5F5F0;font-family:'Onest',system-ui,sans-serif;color:#111214;padding:20px}
+.c{width:100%;max-width:520px;background:#fff;border-radius:24px;padding:28px;box-shadow:0 20px 60px -30px rgba(17,18,20,.35)}
+h1{font-family:'Unbounded';font-weight:900;font-size:22px;margin:0 0 6px;text-transform:uppercase}p{margin:0 0 18px;color:#6B7078;font-size:15px}
+input{width:100%;font:inherit;font-size:17px;padding:14px 16px;border:1.5px solid #E3E3DB;border-radius:14px;outline:0}input:focus{border-color:#14D07E}
+.o{margin:14px 0;padding:12px 14px;background:#F5F5F0;border-radius:12px;font-size:13px;word-break:break-all;min-height:44px;color:#444}
+.b{display:flex;gap:10px}button,a.bt{flex:1;text-align:center;text-decoration:none;font:inherit;font-weight:700;font-size:15px;padding:14px;border-radius:14px;border:0;cursor:pointer}
+.g{background:#14D07E;color:#111}.k{background:#111214;color:#fff}</style></head><body><div class="c">
+<h1>Ссылка для дилера</h1><p>Впиши название салона, получишь персональную ссылку на презентацию.</p>
+<input id="n" placeholder="Например: Автомир" autocomplete="off" maxlength="40">
+<div class="o" id="o">Ссылка появится здесь</div>
+<div class="b"><button class="g" id="cp">Скопировать</button><a class="bt k" id="op" href="#" target="_blank" rel="noopener">Открыть</a></div></div>
+<script>const n=document.getElementById('n'),o=document.getElementById('o'),cp=document.getElementById('cp'),op=document.getElementById('op');
+const base=location.origin+location.pathname.replace(/link\.html$/,'');
+function u(){const v=n.value.trim();return v?base+'?d='+encodeURIComponent(v):base}
+n.addEventListener('input',()=>{const x=u();o.textContent=x;op.href=x});op.href=base;
+cp.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(u());cp.textContent='Скопировано ✓'}catch(e){n.select()}setTimeout(()=>cp.textContent='Скопировать',1800)});</script></body></html>
