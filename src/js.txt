@@ -29,7 +29,7 @@ let phT=null,bT=[];
 /* действия слайдов привязаны к id секции, а не к номеру: новые слайды ничего не сдвигают */
 const ACT={
  s1:on=>0,
- s2:on=>{const pB=$('#pB');if(pB)pB.textContent='900 000 ₽';setTimeout(()=>{draw('cA',1);draw('cB',1)},30)},
+ s2:on=>{const pB=$('#pB');if(pB)pB.textContent='900 000 ₽';if(on){animField('cA',500,1100);animField('cB',1100,1900)}else{F.cA.tk=F.cB.tk=-1;draw('cA',1);draw('cB',1)}},
  sc:on=>{if(on){cc.price=850000;cc.cars=10;$('#rgP').value=850000;$('#rgC').value=10;calcUpd(0,true)}},
  s3:on=>cnts('#s3',on,500),
  s4:on=>cnts('#s4',on,600),

@@ -361,7 +361,7 @@ small.pb{display:inline-block;margin-left:calc(var(--u)*.9);background:var(--gre
 <div class="calc rv" style="--d:.4s">
 <div class="ctl">
 <div class="fld"><label>Цена автомобиля<b id="vP">850 000 ₽</b></label><input id="rgP" type="range" min="300000" max="3000000" step="50000" value="850000" aria-label="Цена автомобиля"></div>
-<div class="fld"><label>Машин в месяц<b id="vC">10</b></label><input id="rgC" type="range" min="1" max="30" step="1" value="10" aria-label="Машин в месяц"></div>
+<div class="fld"><label>Машин в месяц<b id="vC">10</b></label><input id="rgC" type="range" min="1" max="50" step="1" value="10" aria-label="Машин в месяц"></div>
 </div>
 <div class="cres"><small>Дополнительно в месяц</small><div class="big" id="rM">+500 000 ₽</div><div class="yr" id="rY">≈ 6 000 000 ₽ в год</div><div class="per" id="rPer">+50 000 ₽ с одной машины</div></div>
 </div>
@@ -470,7 +470,7 @@ let phT=null,bT=[];
 /* действия слайдов привязаны к id секции, а не к номеру: новые слайды ничего не сдвигают */
 const ACT={
  s1:on=>0,
- s2:on=>{const pB=$('#pB');if(pB)pB.textContent='900 000 ₽';setTimeout(()=>{draw('cA',1);draw('cB',1)},30)},
+ s2:on=>{const pB=$('#pB');if(pB)pB.textContent='900 000 ₽';if(on){animField('cA',500,1100);animField('cB',1100,1900)}else{F.cA.tk=F.cB.tk=-1;draw('cA',1);draw('cB',1)}},
  sc:on=>{if(on){cc.price=850000;cc.cars=10;$('#rgP').value=850000;$('#rgC').value=10;calcUpd(0,true)}},
  s3:on=>cnts('#s3',on,500),
  s4:on=>cnts('#s4',on,600),

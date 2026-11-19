@@ -71,7 +71,7 @@ S.append(f'''<section class="sl" id="sc"><div class="in">
 <div class="calc rv" style="--d:.4s">
 <div class="ctl">
 <div class="fld"><label>Цена автомобиля<b id="vP">850 000 ₽</b></label><input id="rgP" type="range" min="300000" max="3000000" step="50000" value="850000" aria-label="Цена автомобиля"></div>
-<div class="fld"><label>Машин в месяц<b id="vC">10</b></label><input id="rgC" type="range" min="1" max="30" step="1" value="10" aria-label="Машин в месяц"></div>
+<div class="fld"><label>Машин в месяц<b id="vC">10</b></label><input id="rgC" type="range" min="1" max="50" step="1" value="10" aria-label="Машин в месяц"></div>
 </div>
 <div class="cres"><small>Дополнительно в месяц</small><div class="big" id="rM">+500 000 ₽</div><div class="yr" id="rY">≈ 6 000 000 ₽ в год</div><div class="per" id="rPer">+50 000 ₽ с одной машины</div></div>
 </div>
