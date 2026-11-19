@@ -300,7 +300,6 @@ small.pb{display:inline-block;margin-left:calc(var(--u)*.9);background:var(--gre
 .stamp{position:absolute;left:50%;top:66%;z-index:2;font-family:'Unbounded';font-weight:900;text-transform:uppercase;font-size:calc(var(--u)*2.8);letter-spacing:.04em;color:var(--green);background:var(--ink);border:calc(var(--u)*.35) solid var(--green);border-radius:calc(var(--u)*1);padding:calc(var(--u)*.3) calc(var(--u)*1.2);opacity:0;transform:translate(-50%,-50%) scale(1.7) rotate(-8deg);transition:opacity .25s,transform .35s var(--ease);pointer-events:none}
 .m .stamp{font-size:calc(var(--u)*6.4);left:auto;right:calc(var(--u)*5);top:auto;bottom:calc(var(--u)*6);transform:scale(1.7) rotate(-8deg)}
 #s2.sold .stamp{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-8deg)}.m #s2.sold .stamp{transform:scale(1) rotate(-8deg)}
-#s2.bidwait .badge{opacity:0}
 /* ===== пролог ===== */
 #pro{position:absolute;inset:0;z-index:60;background:#111214;display:grid;place-items:center;text-align:center;color:#fff;padding:0 calc(var(--u)*6);cursor:pointer;transition:opacity .7s ease}
 #pro.out{opacity:0;pointer-events:none}
@@ -349,9 +348,8 @@ small.pb{display:inline-block;margin-left:calc(var(--u)*.9);background:var(--gre
 <h2 class="h "><span class="w"><span style="--d:0.10s">Больше</span></span> <span class="w"><span style="--d:0.19s">участников</span></span><br><span class="w"><span style="--d:0.28s">— выше</span></span> <span class="w"><span style="--d:0.37s">цена.</span></span></h2>
 <div class="cmpw"><div class="cmp">
 <div class="row a rv" style="--d:.4s"><div class="rh"><div class="who">20–100 участников<span class="tag">ваш аукцион</span><small>каждая точка — один покупатель</small></div><div class="price">850 000 ₽</div></div><div class="fieldw"><canvas id="cA" class="field"></canvas></div></div>
-<div class="row b rv" style="--d:.9s"><div class="rh"><div class="who">1 600 участников<small>на DROPDEALER</small></div><div class="price" id="pB">900 000 ₽</div></div><div class="fieldw"><canvas id="cB" class="field"></canvas></div><div class="stamp">Продано</div></div>
+<div class="row b rv" style="--d:.9s"><div class="rh"><div class="who">1 600 участников<small>на DROPDEALER</small></div><div class="price" id="pB">900 000 ₽</div></div><div class="fieldw"><canvas id="cB" class="field"></canvas></div></div>
 </div><div class="badge">+50 000 ₽</div></div>
-<div class="bidrow rv" style="--d:1.3s"><button class="bidbtn" id="bid" type="button">Сделать ставку · +50 000 ₽</button></div>
 <p class="note rv" style="--d:1.2s">На внутренних аукционах дилеров обычно 20–100 участников, и это в лучшем случае. Чем больше покупателей видят лот, тем выше уходит цена.</p>
 </div></section><section class="sl" id="sc"><div class="in">
 <div class="eyebrow rv">Калькулятор выгоды</div>
@@ -437,7 +435,7 @@ small.pb{display:inline-block;margin-left:calc(var(--u)*.9);background:var(--gre
 <nav class="nav"><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a></nav>
 <div class="pgb"><i id="pg"></i></div>
 </div>
-<script>window.LOTS0=[{"t": "Chevrolet Aveo 2007", "c": "Санкт-Петербург", "p": 155000, "e": "2026-11-19T12:05:00.000Z"}, {"t": "Niva Travel 24г", "c": "Тольятти", "p": 875000, "e": "2026-11-19T12:05:03.131Z"}, {"t": "Renault Scenic III Рестайлинг 2, 2014  1.6 MT (110 л.с.), Expression", "c": "Санкт-Петербург", "p": 214000, "e": "2026-11-19T12:15:01.257Z"}, {"t": "Hyundai Matrix '2007", "c": "Санкт-Петербург", "p": 110000, "e": "2026-11-19T12:20:03.172Z"}, {"t": "Nissan QASHQAI , 2011 1.6 МТ", "c": "Санкт-Петербург", "p": 580000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Peugeot 307 , 2006  1.6 АТ", "c": "Санкт-Петербург", "p": 205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "KIA CEE D , 2016 1.6 АМТ", "c": "Санкт-Петербург", "p": 905000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Hyundai TUCSON , 2021 2.0 АТ", "c": "Санкт-Петербург", "p": 2205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Skoda Octavia, II (A5) Рестайлинг, 2011 1.8 АМТ", "c": "Санкт-Петербург", "p": 500000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Niva Legend '2022/Lada (ВАЗ) Vesta '2024/Lada (ВАЗ) Vesta '2024", "c": "Москва", "p": 3020000, "e": "2026-11-19T14:35:02.156Z"}, {"t": "LADA vesta", "c": "Самара", "p": 790000, "e": "2026-11-19T14:45:02.171Z"}, {"t": "ГАЗ Volga Siber '2010", "c": "Санкт-Петербург", "p": 148000, "e": "2026-11-19T14:55:00.337Z"}, {"t": "Lada Granta 2019 год 3 хоза Комфорт", "c": "Самара", "p": 420000, "e": "2026-11-19T15:00:02.913Z"}, {"t": "Renault DUSTER , 2014 2.0 АТ 4WD", "c": "Санкт-Петербург", "p": 450000, "e": "2026-11-19T15:05:00.000Z"}]</script><script>const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+<script>window.LOTS0=[{"t": "Renault Scenic III Рестайлинг 2, 2014  1.6 MT (110 л.с.), Expression", "c": "Санкт-Петербург", "p": 214000, "e": "2026-11-19T12:15:01.257Z"}, {"t": "Hyundai Matrix '2007", "c": "Санкт-Петербург", "p": 115000, "e": "2026-11-19T12:20:03.172Z"}, {"t": "Nissan QASHQAI , 2011 1.6 МТ", "c": "Санкт-Петербург", "p": 580000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Peugeot 307 , 2006  1.6 АТ", "c": "Санкт-Петербург", "p": 205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "KIA CEE D , 2016 1.6 АМТ", "c": "Санкт-Петербург", "p": 905000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Hyundai TUCSON , 2021 2.0 АТ", "c": "Санкт-Петербург", "p": 2205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Skoda Octavia, II (A5) Рестайлинг, 2011 1.8 АМТ", "c": "Санкт-Петербург", "p": 500000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Niva Legend '2022/Lada (ВАЗ) Vesta '2024/Lada (ВАЗ) Vesta '2024", "c": "Москва", "p": 3020000, "e": "2026-11-19T14:35:02.156Z"}, {"t": "LADA vesta", "c": "Самара", "p": 790000, "e": "2026-11-19T14:45:02.171Z"}, {"t": "ГАЗ Volga Siber '2010", "c": "Санкт-Петербург", "p": 148000, "e": "2026-11-19T14:55:00.337Z"}, {"t": "Lada Granta 2019 год 3 хоза Комфорт", "c": "Самара", "p": 420000, "e": "2026-11-19T15:00:02.913Z"}, {"t": "Renault DUSTER , 2014 2.0 АТ 4WD", "c": "Санкт-Петербург", "p": 450000, "e": "2026-11-19T15:05:00.000Z"}, {"t": "Renault FLUENCE , 2010 1.6 МТ", "c": "Санкт-Петербург", "p": 208000, "e": "2026-11-19T15:05:00.000Z"}, {"t": "Мitsubishi ASX (10 - ) , 2011 1.8 CVT", "c": "Санкт-Петербург", "p": 444000, "e": "2026-11-19T15:05:00.000Z"}]</script><script>const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const app=$('#app'),stage=$('#stage'),fx=$('#fx'),slides=$$('.sl'),N=slides.length,dots=$$('.nav a');
 const E='cubic-bezier(.7,0,.2,1)',wait=ms=>new Promise(r=>setTimeout(r,ms));
 let cur=0,busy=false,forced=null,moved=false;
@@ -465,19 +463,10 @@ function draw(id,p){const f=F[id],c=f.c;f.p=p;const dpr=devicePixelRatio||1,w=c.
 function animField(id,delay,dur){const f=F[id];f.tk=(f.tk||0)+1;const tk=f.tk,t0=performance.now()+delay;draw(id,0);
  (function s(t){if(f.tk!==tk)return;const k=Math.min(1,Math.max(0,(t-t0)/dur));draw(id,1-Math.pow(1-k,2));if(k<1)requestAnimationFrame(s)})(performance.now())}
 let phT=null,bT=[];
-/* ---- мини-ставка ---- */
-let bidN=0,bidDone=false,bidT=null;
-const vib=p=>{try{if(navigator.vibrate&&navigator.userActivation&&navigator.userActivation.hasBeenActive)navigator.vibrate(p)}catch(e){}};
-function bidReset(){bidN=0;bidDone=false;clearInterval(bidT);const s=$('#s2'),p=$('#pB'),bt=$('#bid');if(!s)return;s.classList.add('bidwait');s.classList.remove('sold');p.textContent='850 000 ₽';if(bt){bt.textContent='Сделать ставку · +10 000 ₽';bt.disabled=false}}
-function bid(auto){if(bidDone)return;bidN++;const s=$('#s2'),p=$('#pB'),bt=$('#bid');p.textContent=fmt(bidN>=1?900000:850000+bidN*10000)+' ₽';p.classList.remove('bmp');void p.offsetWidth;p.classList.add('bmp');
- if(bidN>=1){bidDone=true;clearInterval(bidT);s.classList.remove('bidwait');s.classList.add('sold');bt.textContent='Ещё раз';if(!auto)vib([40,50,40,50,160])}else{bt.textContent='Ещё ставка · +10 000 ₽';if(!auto)vib(14)}}
-try{$('#bid').addEventListener('click',e=>{if(bidDone){bidReset();return}bid(false);e.currentTarget.blur()})}catch(e){}
 /* действия слайдов привязаны к id секции, а не к номеру: новые слайды ничего не сдвигают */
 const ACT={
  s1:on=>0,
- s2:on=>{bT.forEach(clearTimeout);clearInterval(bidT);bT=[];bidReset();
-  if(on){animField('cA',500,1100);animField('cB',1100,1900);bT.push(setTimeout(()=>{if(!bidN&&!bidDone)bidT=setInterval(()=>{if(bidDone){clearInterval(bidT);return}bid(true)},600)},9000))}
-  else{F.cA.tk=F.cB.tk=-1;draw('cA',0);draw('cB',0)}},
+ s2:on=>{bT.forEach(clearTimeout);bT=[];const pB=$('#pB');pB.textContent='850 000 ₽';if(on){animField('cA',500,1100);animField('cB',1100,1900);let v=850000;[2000,2400,2800,3200,3600].forEach(d=>bT.push(setTimeout(()=>{v+=10000;pB.textContent=fmt(v)+' ₽'},d)))}else{F.cA.tk=F.cB.tk=-1;draw('cA',0);draw('cB',0)}},
  sc:on=>{if(on){cc.price=850000;cc.cars=10;$('#rgP').value=850000;$('#rgC').value=10;calcUpd(0,true)}},
  s3:on=>cnts('#s3',on,500),
  s4:on=>cnts('#s4',on,600),

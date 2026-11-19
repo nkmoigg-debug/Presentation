@@ -294,7 +294,6 @@ small.pb{display:inline-block;margin-left:.9u;background:var(--green);color:var(
 .stamp{position:absolute;left:50%;top:66%;z-index:2;font-family:'Unbounded';font-weight:900;text-transform:uppercase;font-size:2.8u;letter-spacing:.04em;color:var(--green);background:var(--ink);border:.35u solid var(--green);border-radius:1u;padding:.3u 1.2u;opacity:0;transform:translate(-50%,-50%) scale(1.7) rotate(-8deg);transition:opacity .25s,transform .35s var(--ease);pointer-events:none}
 .m .stamp{font-size:6.4u;left:auto;right:5u;top:auto;bottom:6u;transform:scale(1.7) rotate(-8deg)}
 #s2.sold .stamp{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-8deg)}.m #s2.sold .stamp{transform:scale(1) rotate(-8deg)}
-#s2.bidwait .badge{opacity:0}
 /* ===== пролог ===== */
 #pro{position:absolute;inset:0;z-index:60;background:#111214;display:grid;place-items:center;text-align:center;color:#fff;padding:0 6u;cursor:pointer;transition:opacity .7s ease}
 #pro.out{opacity:0;pointer-events:none}
