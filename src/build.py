@@ -63,7 +63,7 @@ S.append(f'''<section class="sl" id="s2"><div class="in">
 <div class="row a rv" style="--d:.4s"><div class="rh"><div class="who">20–100 участников<span class="tag">ваш аукцион</span><small>каждая точка — один покупатель</small></div><div class="price">850 000 ₽</div></div><div class="fieldw"><canvas id="cA" class="field"></canvas></div></div>
 <div class="row b rv" style="--d:.9s"><div class="rh"><div class="who">1 600 участников<small>на DROPDEALER</small></div><div class="price" id="pB">900 000 ₽</div></div><div class="fieldw"><canvas id="cB" class="field"></canvas></div><div class="stamp">Продано</div></div>
 </div><div class="badge">+50 000 ₽</div></div>
-<div class="bidrow rv" style="--d:1.3s"><button class="bidbtn" id="bid" type="button">Сделать ставку · +10 000 ₽</button></div>
+<div class="bidrow rv" style="--d:1.3s"><button class="bidbtn" id="bid" type="button">Сделать ставку · +50 000 ₽</button></div>
 <p class="note rv" style="--d:1.2s">На внутренних аукционах дилеров обычно 20–100 участников, и это в лучшем случае. Чем больше покупателей видят лот, тем выше уходит цена.</p>
 </div></section>''')
 S.append(f'''<section class="sl" id="sc"><div class="in">

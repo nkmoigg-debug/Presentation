@@ -17,7 +17,7 @@ async def main():
                 if bad: fails.append(f'{name} слайд {i+1}: счётчики не дошли {bad}')
             # мини-ставка: 5 нажатий -> 900 000 и «Продано»
             await pg.evaluate('go(1)');await pg.wait_for_timeout(3500)
-            for _ in range(5): await pg.click('#bid');await pg.wait_for_timeout(120)
+            for _ in range(1): await pg.click('#bid');await pg.wait_for_timeout(120)
             pb=(await pg.inner_text('#pB')).replace(' ','').replace('\u202f','').replace('\xa0','')
             sold=await pg.evaluate("document.getElementById('s2').classList.contains('sold')")
             if '900000' not in pb or not sold: fails.append(f'{name}: мини-ставка не дошла до 900 000 / нет «Продано» ({pb}, sold={sold})')

@@ -30,8 +30,8 @@ let phT=null,bT=[];
 let bidN=0,bidDone=false,bidT=null;
 const vib=p=>{try{if(navigator.vibrate&&navigator.userActivation&&navigator.userActivation.hasBeenActive)navigator.vibrate(p)}catch(e){}};
 function bidReset(){bidN=0;bidDone=false;clearInterval(bidT);const s=$('#s2'),p=$('#pB'),bt=$('#bid');if(!s)return;s.classList.add('bidwait');s.classList.remove('sold');p.textContent='850 000 ₽';if(bt){bt.textContent='Сделать ставку · +10 000 ₽';bt.disabled=false}}
-function bid(auto){if(bidDone)return;bidN++;const s=$('#s2'),p=$('#pB'),bt=$('#bid');p.textContent=fmt(850000+bidN*10000)+' ₽';p.classList.remove('bmp');void p.offsetWidth;p.classList.add('bmp');
- if(bidN>=5){bidDone=true;clearInterval(bidT);s.classList.remove('bidwait');s.classList.add('sold');bt.textContent='Ещё раз';if(!auto)vib([40,50,40,50,160])}else{bt.textContent='Ещё ставка · +10 000 ₽';if(!auto)vib(14)}}
+function bid(auto){if(bidDone)return;bidN++;const s=$('#s2'),p=$('#pB'),bt=$('#bid');p.textContent=fmt(bidN>=1?900000:850000+bidN*10000)+' ₽';p.classList.remove('bmp');void p.offsetWidth;p.classList.add('bmp');
+ if(bidN>=1){bidDone=true;clearInterval(bidT);s.classList.remove('bidwait');s.classList.add('sold');bt.textContent='Ещё раз';if(!auto)vib([40,50,40,50,160])}else{bt.textContent='Ещё ставка · +10 000 ₽';if(!auto)vib(14)}}
 try{$('#bid').addEventListener('click',e=>{if(bidDone){bidReset();return}bid(false);e.currentTarget.blur()})}catch(e){}
 /* действия слайдов привязаны к id секции, а не к номеру: новые слайды ничего не сдвигают */
 const ACT={
