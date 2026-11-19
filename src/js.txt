@@ -39,7 +39,7 @@ const ACT={
  s8:on=>cnts('#s8',on,500)};
 const act=(i,on)=>{try{const f=ACT[slides[i].id];f&&f(on)}catch(e){}};
 function cnts(sel,on,d0){$$('[data-to]',$(sel)).forEach((e,i)=>{e._run=0;e.textContent='0'+(e.dataset.suf||'');if(on)count(e,+e.dataset.to,1800,d0+i*130)})}
-function activate(i){slides[i].classList.add('on');act(i,true);app.classList.toggle('dk',slides[i].classList.contains('dark'));
+function activate(i){try{history.replaceState(null,'',location.pathname+location.search+'#'+(i+1))}catch(e){}slides[i].classList.add('on');act(i,true);app.classList.toggle('dk',slides[i].classList.contains('dark'));
  dots.forEach((d,k)=>d.classList.toggle('on',k===i));$('#cn').textContent='0'+(i+1);$('#pg').style.width=((i+1)/N*100)+'%'}
 function deactivate(i){slides[i].classList.remove('on');act(i,false)}
 function swap(a,b){deactivate(a);slides[a].classList.remove('cur','vis','top');slides[b].classList.add('cur');cur=b;requestAnimationFrame(()=>activate(b))}
@@ -127,4 +127,4 @@ try{tickRender();setInterval(tickTime,1000);}catch(e){}
 async function tickLoad(){if(location.protocol==='file:')return;try{const r=await fetch('lots.json?'+Date.now(),{cache:'no-store'});if(!r.ok)return;const j=await r.json();if(Array.isArray(j)&&j.length){LOTS=j;tickRender()}}catch(e){}}
 try{tickLoad();setInterval(tickLoad,300000);}catch(e){}
 setMode();slides[0].classList.add('cur');
-(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{fit();setTimeout(()=>activate(0),150)});
+(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{fit();setTimeout(()=>{const h=location.hash.slice(1),k=h==='last'?N-1:(/^\d+$/.test(h)?Math.min(N,Math.max(1,+h))-1:0);activate(0);if(k>0)setTimeout(()=>go(k),700)},150)});

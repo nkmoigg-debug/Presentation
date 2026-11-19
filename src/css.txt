@@ -278,3 +278,5 @@ small.pb{display:inline-block;margin-left:.9u;background:var(--green);color:var(
 
 
 .sub2{margin-top:1.8u}.m .sub2{margin-top:4u}
+
+.nav a{position:relative}.nav a::after{content:'';position:absolute;inset:-1.6u -1.6u}.m .nav a::after{inset:-1.1u -4u}.m .nav{gap:2.6u}.m .nav a{width:2.2u;height:2.2u}
