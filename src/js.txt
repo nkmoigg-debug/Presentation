@@ -29,7 +29,7 @@ let phT=null,bT=[];
 /* действия слайдов привязаны к id секции, а не к номеру: новые слайды ничего не сдвигают */
 const ACT={
  s1:on=>0,
- s2:on=>{bT.forEach(clearTimeout);bT=[];const pB=$('#pB');pB.textContent='850 000 ₽';if(on){animField('cA',500,1100);animField('cB',1100,1900);let v=850000;[2000,2400,2800,3200,3600].forEach(d=>bT.push(setTimeout(()=>{v+=10000;pB.textContent=fmt(v)+' ₽'},d)))}else{F.cA.tk=F.cB.tk=-1;draw('cA',0);draw('cB',0)}},
+ s2:on=>{const pB=$('#pB');if(pB)pB.textContent='900 000 ₽'},
  sc:on=>{if(on){cc.price=850000;cc.cars=10;$('#rgP').value=850000;$('#rgC').value=10;calcUpd(0,true)}},
  s3:on=>cnts('#s3',on,500),
  s4:on=>cnts('#s4',on,600),
@@ -85,9 +85,9 @@ async function zoom(a,b,dir){const na=slides[a],nb=slides[b],o=dir>0?[2.6,.5]:[.
  const p2=an(nb,[{transform:`scale(${o[1]})`,opacity:0,filter:'blur(12px)'},{transform:'scale(1)',opacity:1,filter:'blur(0)'}],{duration:820,easing:'cubic-bezier(.15,.7,.2,1)'});
  await Promise.all([p1,p2]);fin(a,b)}
 async function soft(a,b,dir){const y=isY(),na=slides[a],nb=slides[b],d=dir>0?1:-1,t=y?'translateY(':'translateX(';
- nb.classList.add('vis','top');setTimeout(()=>activate(b),90);
- na.animate([{opacity:1},{opacity:0}],{duration:260,easing:'ease-out',fill:'both'});
- await nb.animate([{opacity:0,transform:t+(d*5)+'%)'},{opacity:1,transform:'none'}],{duration:380,easing:'cubic-bezier(.2,.8,.2,1)',fill:'both'}).finished;
+ nb.classList.add('vis','top');setTimeout(()=>activate(b),70);
+ na.animate([{opacity:1},{opacity:0}],{duration:195,easing:'ease-out',fill:'both'});
+ await nb.animate([{opacity:0,transform:t+(d*3.5)+'%)'},{opacity:1,transform:'none'}],{duration:285,easing:'cubic-bezier(.2,.8,.2,1)',fill:'both'}).finished;
  fin(a,b)}
 const FX=Array(8).fill(soft);
 async function go(n){const pr=document.getElementById('pro');if(pr&&!pr.classList.contains('out'))return;if(busy||n<0||n>=N||n===cur)return;busy=true;if(!moved){moved=true;app.classList.add('moved')}
