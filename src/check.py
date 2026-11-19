@@ -15,10 +15,13 @@ async def main():
                 await pg.wait_for_timeout(5200)
                 bad=await pg.evaluate("""()=>{const s=slides[cur];return [...s.querySelectorAll('[data-to]')].filter(e=>{const v=parseInt(e.textContent.replace(/\\D/g,''))||0;return v!==+e.dataset.to}).map(e=>e.dataset.to+'→'+e.textContent)}""")
                 if bad: fails.append(f'{name} слайд {i+1}: счётчики не дошли {bad}')
-            # проверка конкретных значений пример-слайда и калькулятора
-            await pg.evaluate('go(1)');await pg.wait_for_timeout(5200)
-            pb=await pg.inner_text('#pB')
-            if '900' not in pb.replace(' ','').replace(' ','').replace('\xa0',''): fails.append(f'{name}: на слайде-примере цена не дошла до 900 000 ({pb})')
+            # мини-ставка: 5 нажатий -> 900 000 и «Продано»
+            await pg.evaluate('go(1)');await pg.wait_for_timeout(3500)
+            for _ in range(5): await pg.click('#bid');await pg.wait_for_timeout(120)
+            pb=(await pg.inner_text('#pB')).replace(' ','').replace('\u202f','').replace('\xa0','')
+            sold=await pg.evaluate("document.getElementById('s2').classList.contains('sold')")
+            if '900000' not in pb or not sold: fails.append(f'{name}: мини-ставка не дошла до 900 000 / нет «Продано» ({pb}, sold={sold})')
+            if await pg.evaluate("!!document.getElementById('pro')"): fails.append(f'{name}: пролог не убрался')
             if errs: fails.append(f'{name}: JS-ошибки {errs[:3]}')
             print(name,'слайдов',n);await pg.close()
         await b.close()

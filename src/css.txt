@@ -285,3 +285,25 @@ small.pb{display:inline-block;margin-left:.9u;background:var(--green);color:var(
 .land .nav{gap:2.2u}
 .m .nav{gap:7u}.m .nav a{width:2.2u;height:2.2u}.m .nav a::after{inset:-2.4u -4.5u}
 .nav a:active{background:var(--green);transform:scale(1.9)}
+
+/* ===== мини-ставка ===== */
+.row.b{position:relative}
+.bidrow{display:flex;justify-content:center;margin-top:1.6u}.m .bidrow{margin-top:4u}
+.bidbtn{font:inherit;font-weight:800;font-size:1.25u;background:var(--green);color:#111;border:0;border-radius:99px;padding:.9u 2.4u;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s}.m .bidbtn{font-size:3.7u;padding:3u 7u;width:100%}
+.bidbtn:active{transform:scale(.96)}
+.stamp{position:absolute;left:50%;top:66%;z-index:2;font-family:'Unbounded';font-weight:900;text-transform:uppercase;font-size:2.8u;letter-spacing:.04em;color:var(--green);background:var(--ink);border:.35u solid var(--green);border-radius:1u;padding:.3u 1.2u;opacity:0;transform:translate(-50%,-50%) scale(1.7) rotate(-8deg);transition:opacity .25s,transform .35s var(--ease);pointer-events:none}
+.m .stamp{font-size:6.4u;left:auto;right:5u;top:auto;bottom:6u;transform:scale(1.7) rotate(-8deg)}
+#s2.sold .stamp{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-8deg)}.m #s2.sold .stamp{transform:scale(1) rotate(-8deg)}
+#s2.bidwait .badge{opacity:0}
+/* ===== пролог ===== */
+#pro{position:absolute;inset:0;z-index:60;background:#111214;display:grid;place-items:center;text-align:center;color:#fff;padding:0 6u;cursor:pointer;transition:opacity .7s ease}
+#pro.out{opacity:0;pointer-events:none}
+#pro::before{content:"";position:absolute;left:50%;top:62%;width:46u;height:46u;margin:-23u 0 0 -23u;border-radius:50%;background:var(--green);opacity:.16;filter:blur(8u)}
+.pq{position:relative;max-width:88u}
+.pq span{display:block;font-family:'Unbounded';font-weight:900;text-transform:uppercase;font-size:4.4u;line-height:1.15;opacity:0;transform:translateY(2u);animation:pin .8s var(--ease) forwards}
+.m .pq span{font-size:7.4u}
+.pq .l1{animation-delay:.25s}.pq .l2{animation-delay:1.15s;color:#cfd3d9}
+.pq b{color:var(--green)}
+@keyframes pin{to{opacity:1;transform:none}}
+
+.bmp{animation:bump .35s ease}

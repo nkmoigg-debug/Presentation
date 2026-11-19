@@ -291,6 +291,28 @@ small.pb{display:inline-block;margin-left:calc(var(--u)*.9);background:var(--gre
 .land .nav{gap:calc(var(--u)*2.2)}
 .m .nav{gap:calc(var(--u)*7)}.m .nav a{width:calc(var(--u)*2.2);height:calc(var(--u)*2.2)}.m .nav a::after{inset:calc(var(--u)*-2.4) calc(var(--u)*-4.5)}
 .nav a:active{background:var(--green);transform:scale(1.9)}
+
+/* ===== мини-ставка ===== */
+.row.b{position:relative}
+.bidrow{display:flex;justify-content:center;margin-top:calc(var(--u)*1.6)}.m .bidrow{margin-top:calc(var(--u)*4)}
+.bidbtn{font:inherit;font-weight:800;font-size:calc(var(--u)*1.25);background:var(--green);color:#111;border:0;border-radius:99px;padding:calc(var(--u)*.9) calc(var(--u)*2.4);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .15s}.m .bidbtn{font-size:calc(var(--u)*3.7);padding:calc(var(--u)*3) calc(var(--u)*7);width:100%}
+.bidbtn:active{transform:scale(.96)}
+.stamp{position:absolute;left:50%;top:66%;z-index:2;font-family:'Unbounded';font-weight:900;text-transform:uppercase;font-size:calc(var(--u)*2.8);letter-spacing:.04em;color:var(--green);background:var(--ink);border:calc(var(--u)*.35) solid var(--green);border-radius:calc(var(--u)*1);padding:calc(var(--u)*.3) calc(var(--u)*1.2);opacity:0;transform:translate(-50%,-50%) scale(1.7) rotate(-8deg);transition:opacity .25s,transform .35s var(--ease);pointer-events:none}
+.m .stamp{font-size:calc(var(--u)*6.4);left:auto;right:calc(var(--u)*5);top:auto;bottom:calc(var(--u)*6);transform:scale(1.7) rotate(-8deg)}
+#s2.sold .stamp{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-8deg)}.m #s2.sold .stamp{transform:scale(1) rotate(-8deg)}
+#s2.bidwait .badge{opacity:0}
+/* ===== пролог ===== */
+#pro{position:absolute;inset:0;z-index:60;background:#111214;display:grid;place-items:center;text-align:center;color:#fff;padding:0 calc(var(--u)*6);cursor:pointer;transition:opacity .7s ease}
+#pro.out{opacity:0;pointer-events:none}
+#pro::before{content:"";position:absolute;left:50%;top:62%;width:calc(var(--u)*46);height:calc(var(--u)*46);margin:calc(var(--u)*-23) 0 0 calc(var(--u)*-23);border-radius:50%;background:var(--green);opacity:.16;filter:blur(calc(var(--u)*8))}
+.pq{position:relative;max-width:calc(var(--u)*88)}
+.pq span{display:block;font-family:'Unbounded';font-weight:900;text-transform:uppercase;font-size:calc(var(--u)*4.4);line-height:1.15;opacity:0;transform:translateY(calc(var(--u)*2));animation:pin .8s var(--ease) forwards}
+.m .pq span{font-size:calc(var(--u)*7.4)}
+.pq .l1{animation-delay:.25s}.pq .l2{animation-delay:1.15s;color:#cfd3d9}
+.pq b{color:var(--green)}
+@keyframes pin{to{opacity:1;transform:none}}
+
+.bmp{animation:bump .35s ease}
 </style><noscript><style>html,body{height:auto!important;overflow:auto!important}body{display:block!important}
 #app,#app.m,#app.land{--u:1cqw!important;position:static!important;width:100%!important;max-width:560px;margin:0 auto;height:auto!important;container-type:inline-size;overflow:visible!important}
 #stage{position:static!important;perspective:none!important}
@@ -327,8 +349,9 @@ small.pb{display:inline-block;margin-left:calc(var(--u)*.9);background:var(--gre
 <h2 class="h "><span class="w"><span style="--d:0.10s">Больше</span></span> <span class="w"><span style="--d:0.19s">участников</span></span><br><span class="w"><span style="--d:0.28s">— выше</span></span> <span class="w"><span style="--d:0.37s">цена.</span></span></h2>
 <div class="cmpw"><div class="cmp">
 <div class="row a rv" style="--d:.4s"><div class="rh"><div class="who">20–100 участников<span class="tag">ваш аукцион</span><small>каждая точка — один покупатель</small></div><div class="price">850 000 ₽</div></div><div class="fieldw"><canvas id="cA" class="field"></canvas></div></div>
-<div class="row b rv" style="--d:.9s"><div class="rh"><div class="who">1 600 участников<small>на DROPDEALER</small></div><div class="price" id="pB">850 000 ₽</div></div><div class="fieldw"><canvas id="cB" class="field"></canvas></div></div>
+<div class="row b rv" style="--d:.9s"><div class="rh"><div class="who">1 600 участников<small>на DROPDEALER</small></div><div class="price" id="pB">900 000 ₽</div></div><div class="fieldw"><canvas id="cB" class="field"></canvas></div><div class="stamp">Продано</div></div>
 </div><div class="badge">+50 000 ₽</div></div>
+<div class="bidrow rv" style="--d:1.3s"><button class="bidbtn" id="bid" type="button">Сделать ставку · +10 000 ₽</button></div>
 <p class="note rv" style="--d:1.2s">На внутренних аукционах дилеров обычно 20–100 участников, и это в лучшем случае. Чем больше покупателей видят лот, тем выше уходит цена.</p>
 </div></section><section class="sl" id="sc"><div class="in">
 <div class="eyebrow rv">Калькулятор выгоды</div>
@@ -414,7 +437,7 @@ small.pb{display:inline-block;margin-left:calc(var(--u)*.9);background:var(--gre
 <nav class="nav"><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a></nav>
 <div class="pgb"><i id="pg"></i></div>
 </div>
-<script>window.LOTS0=[{"t": "Granta Cross 23 год", "c": "Тольятти", "p": 595000, "e": "2026-11-19T11:35:01.712Z"}, {"t": "Niva Legend Sport 25г", "c": "Тольятти", "p": 1350000, "e": "2026-11-19T11:45:02.213Z"}, {"t": "KIA CEE D, 2008 1.6 АТ", "c": "Санкт-Петербург", "p": 320000, "e": "2026-11-19T11:45:04.421Z"}, {"t": "Niva Travel 23г", "c": "Тольятти", "p": 830000, "e": "2026-11-19T11:55:02.690Z"}, {"t": "Chevrolet Aveo 2007", "c": "Санкт-Петербург", "p": 155000, "e": "2026-11-19T12:05:00.000Z"}, {"t": "Niva Travel 24г", "c": "Тольятти", "p": 875000, "e": "2026-11-19T12:05:03.131Z"}, {"t": "Renault Scenic III Рестайлинг 2, 2014  1.6 MT (110 л.с.), Expression", "c": "Санкт-Петербург", "p": 208000, "e": "2026-11-19T12:15:01.257Z"}, {"t": "Hyundai Matrix '2007", "c": "Санкт-Петербург", "p": 110000, "e": "2026-11-19T12:20:03.172Z"}, {"t": "Nissan QASHQAI , 2011 1.6 МТ", "c": "Санкт-Петербург", "p": 580000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Peugeot 307 , 2006  1.6 АТ", "c": "Санкт-Петербург", "p": 205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "KIA CEE D , 2016 1.6 АМТ", "c": "Санкт-Петербург", "p": 905000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Hyundai TUCSON , 2021 2.0 АТ", "c": "Санкт-Петербург", "p": 2205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Skoda Octavia, II (A5) Рестайлинг, 2011 1.8 АМТ", "c": "Санкт-Петербург", "p": 500000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Niva Legend '2022/Lada (ВАЗ) Vesta '2024/Lada (ВАЗ) Vesta '2024", "c": "Москва", "p": 3020000, "e": "2026-11-19T14:35:02.156Z"}]</script><script>const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+<script>window.LOTS0=[{"t": "Niva Travel 23г", "c": "Тольятти", "p": 830000, "e": "2026-11-19T11:55:02.690Z"}, {"t": "Chevrolet Aveo 2007", "c": "Санкт-Петербург", "p": 155000, "e": "2026-11-19T12:05:00.000Z"}, {"t": "Niva Travel 24г", "c": "Тольятти", "p": 875000, "e": "2026-11-19T12:05:03.131Z"}, {"t": "Renault Scenic III Рестайлинг 2, 2014  1.6 MT (110 л.с.), Expression", "c": "Санкт-Петербург", "p": 214000, "e": "2026-11-19T12:15:01.257Z"}, {"t": "Hyundai Matrix '2007", "c": "Санкт-Петербург", "p": 110000, "e": "2026-11-19T12:20:03.172Z"}, {"t": "Nissan QASHQAI , 2011 1.6 МТ", "c": "Санкт-Петербург", "p": 580000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Peugeot 307 , 2006  1.6 АТ", "c": "Санкт-Петербург", "p": 205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "KIA CEE D , 2016 1.6 АМТ", "c": "Санкт-Петербург", "p": 905000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Hyundai TUCSON , 2021 2.0 АТ", "c": "Санкт-Петербург", "p": 2205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Skoda Octavia, II (A5) Рестайлинг, 2011 1.8 АМТ", "c": "Санкт-Петербург", "p": 500000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Niva Legend '2022/Lada (ВАЗ) Vesta '2024/Lada (ВАЗ) Vesta '2024", "c": "Москва", "p": 3020000, "e": "2026-11-19T14:35:02.156Z"}, {"t": "LADA vesta", "c": "Самара", "p": 790000, "e": "2026-11-19T14:45:02.171Z"}, {"t": "ГАЗ Volga Siber '2010", "c": "Санкт-Петербург", "p": 148000, "e": "2026-11-19T14:55:00.337Z"}, {"t": "Lada Granta 2019 год 3 хоза Комфорт", "c": "Самара", "p": 420000, "e": "2026-11-19T15:00:02.913Z"}]</script><script>const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const app=$('#app'),stage=$('#stage'),fx=$('#fx'),slides=$$('.sl'),N=slides.length,dots=$$('.nav a');
 const E='cubic-bezier(.7,0,.2,1)',wait=ms=>new Promise(r=>setTimeout(r,ms));
 let cur=0,busy=false,forced=null,moved=false;
@@ -442,10 +465,19 @@ function draw(id,p){const f=F[id],c=f.c;f.p=p;const dpr=devicePixelRatio||1,w=c.
 function animField(id,delay,dur){const f=F[id];f.tk=(f.tk||0)+1;const tk=f.tk,t0=performance.now()+delay;draw(id,0);
  (function s(t){if(f.tk!==tk)return;const k=Math.min(1,Math.max(0,(t-t0)/dur));draw(id,1-Math.pow(1-k,2));if(k<1)requestAnimationFrame(s)})(performance.now())}
 let phT=null,bT=[];
+/* ---- мини-ставка ---- */
+let bidN=0,bidDone=false,bidT=null;
+const vib=p=>{try{if(navigator.vibrate&&navigator.userActivation&&navigator.userActivation.hasBeenActive)navigator.vibrate(p)}catch(e){}};
+function bidReset(){bidN=0;bidDone=false;clearInterval(bidT);const s=$('#s2'),p=$('#pB'),bt=$('#bid');if(!s)return;s.classList.add('bidwait');s.classList.remove('sold');p.textContent='850 000 ₽';if(bt){bt.textContent='Сделать ставку · +10 000 ₽';bt.disabled=false}}
+function bid(auto){if(bidDone)return;bidN++;const s=$('#s2'),p=$('#pB'),bt=$('#bid');p.textContent=fmt(850000+bidN*10000)+' ₽';p.classList.remove('bmp');void p.offsetWidth;p.classList.add('bmp');
+ if(bidN>=5){bidDone=true;clearInterval(bidT);s.classList.remove('bidwait');s.classList.add('sold');bt.textContent='Ещё раз';if(!auto)vib([40,50,40,50,160])}else{bt.textContent='Ещё ставка · +10 000 ₽';if(!auto)vib(14)}}
+try{$('#bid').addEventListener('click',e=>{if(bidDone){bidReset();return}bid(false);e.currentTarget.blur()})}catch(e){}
 /* действия слайдов привязаны к id секции, а не к номеру: новые слайды ничего не сдвигают */
 const ACT={
  s1:on=>0,
- s2:on=>{bT.forEach(clearTimeout);bT=[];const pB=$('#pB');pB.textContent='850 000 ₽';if(on){animField('cA',500,1100);animField('cB',1100,1900);let v=850000;[2000,2400,2800,3200,3600].forEach(d=>bT.push(setTimeout(()=>{v+=10000;pB.textContent=fmt(v)+' ₽'},d)))}else{F.cA.tk=F.cB.tk=-1;draw('cA',0);draw('cB',0)}},
+ s2:on=>{bT.forEach(clearTimeout);clearInterval(bidT);bT=[];bidReset();
+  if(on){animField('cA',500,1100);animField('cB',1100,1900);bT.push(setTimeout(()=>{if(!bidN&&!bidDone)bidT=setInterval(()=>{if(bidDone){clearInterval(bidT);return}bid(true)},600)},9000))}
+  else{F.cA.tk=F.cB.tk=-1;draw('cA',0);draw('cB',0)}},
  sc:on=>{if(on){cc.price=850000;cc.cars=10;$('#rgP').value=850000;$('#rgC').value=10;calcUpd(0,true)}},
  s3:on=>cnts('#s3',on,500),
  s4:on=>cnts('#s4',on,600),
@@ -506,12 +538,12 @@ async function soft(a,b,dir){const y=isY(),na=slides[a],nb=slides[b],d=dir>0?1:-
  await nb.animate([{opacity:0,transform:t+(d*5)+'%)'},{opacity:1,transform:'none'}],{duration:380,easing:'cubic-bezier(.2,.8,.2,1)',fill:'both'}).finished;
  fin(a,b)}
 const FX=Array(8).fill(soft);
-async function go(n){if(busy||n<0||n>=N||n===cur)return;busy=true;if(!moved){moved=true;app.classList.add('moved')}
+async function go(n){const pr=document.getElementById('pro');if(pr&&!pr.classList.contains('out'))return;if(busy||n<0||n>=N||n===cur)return;busy=true;if(!moved){moved=true;app.classList.add('moved')}
  const a=cur,dir=n>a?1:-1;try{await FX[Math.min(a,n)](a,n,dir)}catch(e){fin(a,n)}
  await wait(60);busy=false}
 /* ввод */
 let wl=0;addEventListener('wheel',e=>{e.preventDefault();const d=Math.abs(e.deltaY)>Math.abs(e.deltaX)?e.deltaY:e.deltaX;if(busy||Date.now()<wl||Math.abs(d)<18)return;wl=Date.now()+500;go(cur+(d>0?1:-1))},{passive:false});
-addEventListener('keydown',e=>{const k=e.key;if(e.target.tagName==='INPUT')return;if(['ArrowRight','ArrowDown','PageDown',' '].includes(k)){e.preventDefault();go(cur+1)}else if(['ArrowLeft','ArrowUp','PageUp'].includes(k)){e.preventDefault();go(cur-1)}else if(k==='Home')go(0);else if(k==='End')go(N-1)});
+addEventListener('keydown',e=>{const k=e.key;if(e.target.tagName==='INPUT'||e.target.tagName==='BUTTON')return;if(['ArrowRight','ArrowDown','PageDown',' '].includes(k)){e.preventDefault();go(cur+1)}else if(['ArrowLeft','ArrowUp','PageUp'].includes(k)){e.preventDefault();go(cur-1)}else if(k==='Home')go(0);else if(k==='End')go(N-1)});
 let t0=null;app.addEventListener('touchstart',e=>{if(e.target.closest('.calc')){t0=null;return}const t=e.touches[0];t0={x:t.clientX,y:t.clientY}},{passive:true});
 app.addEventListener('touchend',e=>{if(!t0)return;const t=e.changedTouches[0],dx=t.clientX-t0.x,dy=t.clientY-t0.y;t0=null;const main=isY()?dy:(Math.abs(dx)>Math.abs(dy)?dx:dy);if(Math.abs(main)>42)go(cur+(main<0?1:-1))},{passive:true});
 let md=null;app.addEventListener('pointerdown',e=>{if(e.target.closest('.calc')){md=null;return}if(e.pointerType==='mouse')md={x:e.clientX,y:e.clientY}});
@@ -548,5 +580,12 @@ try{tickRender();setInterval(tickTime,1000);}catch(e){}
 async function tickLoad(){if(location.protocol==='file:')return;try{const r=await fetch('lots.json?'+Date.now(),{cache:'no-store'});if(!r.ok)return;const j=await r.json();if(Array.isArray(j)&&j.length){LOTS=j;tickRender()}}catch(e){}}
 try{tickLoad();setInterval(tickLoad,300000);}catch(e){}
 setMode();slides[0].classList.add('cur');
-(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{fit();setTimeout(()=>{const h=location.hash.slice(1),k=h==='last'?N-1:(/^\d+$/.test(h)?Math.min(N,Math.max(1,+h))-1:0);activate(0);if(k>0)setTimeout(()=>go(k),700)},150)});
+function prologue(done){let end=false;const el=document.createElement('div');el.id='pro';
+ el.innerHTML='<div class="pq"><span class="l1">Сколько вы <b>теряете</b></span><span class="l2">на каждом трейд-ине?</span></div>';app.appendChild(el);
+ const out=()=>{if(end)return;end=true;el.classList.add('out');done();setTimeout(()=>el.remove(),800)};
+ el.addEventListener('click',out);addEventListener('keydown',out,{once:true});setTimeout(out,3000)}
+(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{fit();setTimeout(()=>{const h=location.hash.slice(1),k=h==='last'?N-1:(/^\d+$/.test(h)?Math.min(N,Math.max(1,+h))-1:0);
+ const run=()=>{activate(0);if(k>0)setTimeout(()=>go(k),700)};
+ let reduce=false;try{reduce=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
+ if(k>0||reduce)run();else prologue(run)},150)});
 </script></body></html>
