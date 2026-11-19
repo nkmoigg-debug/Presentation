@@ -47,22 +47,23 @@ except Exception as ex:
     print('lots fetch failed',ex);LOTS=json.load(open('lots_snapshot.json'))
 print('lots',len(LOTS))
 LOTS_JS='<script>window.LOTS0='+json.dumps(LOTS,ensure_ascii=False)+'</script>'
+BORIS='data:image/jpeg;base64,'+base64.b64encode(open('boris_av.jpg','rb').read()).decode()
 S=[]
 S.append(f'''<section class="sl" id="s1"><div class="in">
 <div class="eyebrow rv"><i class="live"><s></s>ТОРГИ ИДУТ</i> · <span id="eb1">автоаукцион для дилеров</span></div>
 <h1 class="h h1"><span class="w bk"><span style="--d:.15s">Один</span></span> <span class="w"><span style="--d:.24s">аукцион.</span></span><br><span class="w"><span style="--d:.33s">Три</span></span> <span class="w"><span style="--d:.42s">экрана.</span></span></h1>
 <p class="sub rv" style="--d:.7s">Приложение, MAX и Telegram. Одни торги, одна цена, одни ставки — в любом месте, где удобно дилеру.</p>
-<div class="phones">{phone("ПРИЛОЖЕНИЕ","l",.7)}{phone("MAX","mm",.9)}{phone("TELEGRAM","r",1.1)}</div>
+<div class="phones"><div class="tapnote rv" style="--d:1.1s"><svg viewBox="0 0 24 24"><path d="M12 4v14M6 12l6 6 6-6"/></svg>Кликабельно — нажми на кнопку</div>{phone("ПРИЛОЖЕНИЕ","l",.7)}{phone("MAX","mm",.9)}{phone("TELEGRAM","r",1.1)}</div>
 </div><div class="tick" id="tick"><div class="tl"><s></s>LIVE</div><div class="tkw"><div class="tt" id="tt"></div></div></div>
 <div class="hint">ЛИСТАЙ</div></section>''')
 S.append(f'''<section class="sl" id="s2"><div class="in">
 <div class="eyebrow rv"><i class="live"><s></s>ПРИМЕР ИЗ ПРАКТИКИ</i></div>
 {H([["Больше","участников"],["— выше","цена."]],.1)}
 <div class="cmpw"><div class="cmp">
-<div class="row a rv" style="--d:.4s"><div class="rh"><div class="who">150 участников<small>каждая точка — один покупатель</small></div><div class="price">850 000 ₽</div></div><div class="fieldw"><canvas id="cA" class="field"></canvas></div></div>
+<div class="row a rv" style="--d:.4s"><div class="rh"><div class="who">20–100 участников<span class="tag">ваш аукцион</span><small>каждая точка — один покупатель</small></div><div class="price">850 000 ₽</div></div><div class="fieldw"><canvas id="cA" class="field"></canvas></div></div>
 <div class="row b rv" style="--d:.9s"><div class="rh"><div class="who">1 600 участников<small>на DROPDEALER</small></div><div class="price" id="pB">850 000 ₽</div></div><div class="fieldw"><canvas id="cB" class="field"></canvas></div></div>
 </div><div class="badge">+50 000 ₽</div></div>
-<p class="note rv" style="--d:1.2s">Пример по одному автомобилю: чем больше покупателей видят лот, тем выше уходит цена.</p>
+<p class="note rv" style="--d:1.2s">На внутренних аукционах дилеров обычно 20–100 участников, и это в лучшем случае. Чем больше покупателей видят лот, тем выше уходит цена.</p>
 </div></section>''')
 S.append(f'''<section class="sl" id="sc"><div class="in">
 <div class="eyebrow rv">Калькулятор выгоды</div>
@@ -72,7 +73,7 @@ S.append(f'''<section class="sl" id="sc"><div class="in">
 <div class="fld"><label>Цена автомобиля<b id="vP">850 000 ₽</b></label><input id="rgP" type="range" min="300000" max="3000000" step="50000" value="850000" aria-label="Цена автомобиля"></div>
 <div class="fld"><label>Машин в месяц<b id="vC">10</b></label><input id="rgC" type="range" min="1" max="30" step="1" value="10" aria-label="Машин в месяц"></div>
 </div>
-<div class="cres"><small>Дополнительно в месяц</small><div class="big" id="rM">+0 ₽</div><div class="yr" id="rY">≈ 0 ₽ в год</div><div class="per" id="rPer">+0 ₽ с одной машины</div></div>
+<div class="cres"><small>Дополнительно в месяц</small><div class="big" id="rM">+500 000 ₽</div><div class="yr" id="rY">≈ 6 000 000 ₽ в год</div><div class="per" id="rPer">+50 000 ₽ с одной машины</div></div>
 </div>
 <p class="calcnote rv" style="--d:.7s">Реальный результат зависит от автомобиля и числа участников торгов.</p>
 </div></section>''')
@@ -142,21 +143,33 @@ S.append(f'''<section class="sl dark" id="s8"><div class="in cta">
 <div><div class="eyebrow rv" id="eb8">Готовы начать?</div>
 {H([["Подключим"],["за",("30","g"),("минут.","g")]],.1)}
 <p class="sub rv" style="--d:.5s">Напишите или позвоните: менеджер создаст кабинет, обучит команду, и сегодня вы уже на торгах.</p>
-<div class="btns rv" style="--d:.7s"><a class="btn" href="tel:+79213434337">+7 921 343-43-37</a><button class="btn gh" id="copy">Скопировать номер</button></div>
+<div class="btns rv" style="--d:.7s"><a class="btn" href="tel:+79214088598">+7 921 408-85-98</a><button class="btn gh" id="copy">Скопировать номер</button></div>
 <div class="links rv" style="--d:.8s"><a href="https://app.dropdealer.ru" target="_blank" rel="noopener"><small>ПРИЛОЖЕНИЕ</small>app.dropdealer.ru</a><a href="https://dropdealer.ru" target="_blank" rel="noopener"><small>САЙТ</small>dropdealer.ru</a><span><small>ПОЧТА</small>dropdealerspb@gmail.com</span></div>
-<p class="who2 rv" style="--d:.95s"><b>Никита Мошкин</b> · Руководитель проекта</p>
+<div class="person rv" style="--d:.95s"><img src="{BORIS}" alt="Борис Мухин"><div><b>Борис Мухин</b><span>Бизнес-консультант практик · Собственник</span><small>Более 25 лет операционного управления в автобизнесе</small></div></div>
 </div>
 <div class="orb rv" style="--d:.4s"><i></i><i></i><i></i><b><span data-to="30">0</span><small>МИНУТ</small></b></div>
 </div></section>''')
 
+# CSS для режима без JS (iOS Quick Look, предпросмотры): все слайды подряд, конечные состояния анимаций
+_on=[l for l in open('css.txt').read().split('\n') if '.on ' in l]
+_nj='\n'.join(l.replace('.on ','.sl ') for l in _on)
+_nj=re.sub(r'(?<![\w#.\-])(-?\d*\.?\d+)u(?![\w\-])',lambda m:f'calc(var(--u)*{m.group(1)})',_nj)
+NOJS='''html,body{height:auto!important;overflow:auto!important}body{display:block!important}
+#app,#app.m,#app.land{--u:1cqw!important;position:static!important;width:100%!important;max-width:560px;margin:0 auto;height:auto!important;container-type:inline-size;overflow:visible!important}
+#stage{position:static!important;perspective:none!important}
+.sl{position:relative!important;inset:auto!important;visibility:visible!important;padding-top:calc(var(--u)*13)!important;padding-bottom:calc(var(--u)*12)!important}
+.nav,.pgb,.hint,#fx,.tick,.topb,canvas.field{display:none!important}
+.njn{background:#111214;color:#fff;font:500 14px/1.4 Onest,system-ui,sans-serif;padding:12px 16px;text-align:center}.njn a{color:#14D07E;font-weight:700}
+'''+_nj
 html=f'''<!DOCTYPE html>
 <html lang="ru"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>DROPDEALER — презентация для дилеров</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@800;900&display=swap" rel="stylesheet">
-<style>{css}</style></head><body>
-<div id="app" class="land">
+<style>{css}</style><noscript><style>{NOJS}</style></noscript></head><body>
+<noscript><div class="njn"><b>Версия без анимации.</b> Чтобы листать слайды с эффектами, откройте презентацию в браузере: <a href="https://nkmoigg-debug.github.io/Presentation/">nkmoigg-debug.github.io/Presentation</a></div></noscript>
+<div id="app" class="m">
 <div id="stage">{''.join(S)}</div>
 <div id="fx"></div>
 <header class="topb"><div class="logo"><s></s>DROPDEALER</div><div class="rt"><div class="sw"><button data-m="land">ПК</button><button data-m="m">ТЕЛЕФОН</button></div><div class="cnt"><b id="cn">01</b> / 0{len(S)}</div></div></header>
@@ -164,4 +177,8 @@ html=f'''<!DOCTYPE html>
 <div class="pgb"><i id="pg"></i></div>
 </div>
 {LOTS_JS}<script>{js}</script></body></html>'''
+def _c(m):
+    n=int(m.group(2));suf=m.group(3) or ''
+    return m.group(1)+f'{n:,}'.replace(',','\u00a0')+suf+'<'
+html=re.sub(r'(data-to="(\d+)"(?: data-suf="([^"]*)")?[^>]*>)[^<]*<',_c,html)
 open('index.html','w').write(html);print(len(html))

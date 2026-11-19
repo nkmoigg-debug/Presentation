@@ -17,7 +17,7 @@ function count(el,to,dur,delay=0){const suf=el.dataset.suf||'';const t0=performa
 function rng(s){return()=>{s=(s*1664525+1013904223)%4294967296;return s/4294967296}}
 const F={};
 function setup(id,n,color,seed){const o=[...Array(n).keys()];const r=rng(seed);for(let i=n-1;i>0;i--){const j=Math.floor(r()*(i+1));[o[i],o[j]]=[o[j],o[i]]}F[id]={c:document.getElementById(id),n,color,order:o,p:0}}
-setup('cA',150,'#111214',7);setup('cB',1600,'#14D07E',11);
+setup('cA',100,'#111214',7);setup('cB',1600,'#14D07E',11);
 function draw(id,p){const f=F[id],c=f.c;f.p=p;const dpr=devicePixelRatio||1,w=c.clientWidth,h=c.clientHeight;if(!w||!h)return;
  if(c.width!==Math.round(w*dpr)||c.height!==Math.round(h*dpr)){c.width=Math.round(w*dpr);c.height=Math.round(h*dpr)}
  const x=c.getContext('2d');x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,w,h);
@@ -37,7 +37,7 @@ const ACT={
  s6:on=>cnts('#s6',on,700),
  s7:on=>0,
  s8:on=>cnts('#s8',on,500)};
-const act=(i,on)=>{const f=ACT[slides[i].id];f&&f(on)};
+const act=(i,on)=>{try{const f=ACT[slides[i].id];f&&f(on)}catch(e){}};
 function cnts(sel,on,d0){$$('[data-to]',$(sel)).forEach((e,i)=>{e._run=0;e.textContent='0'+(e.dataset.suf||'');if(on)count(e,+e.dataset.to,1800,d0+i*130)})}
 function activate(i){slides[i].classList.add('on');act(i,true);app.classList.toggle('dk',slides[i].classList.contains('dark'));
  dots.forEach((d,k)=>d.classList.toggle('on',k===i));$('#cn').textContent='0'+(i+1);$('#pg').style.width=((i+1)/N*100)+'%'}
@@ -99,11 +99,11 @@ dots.forEach((d,i)=>d.addEventListener('click',()=>go(i)));
 $$('.sw button').forEach(b=>b.addEventListener('click',()=>{forced=b.dataset.m;setMode();setTimeout(fit,30);rerun()}));
 function rerun(){const i=cur;deactivate(i);setTimeout(()=>{activate(i)},80)}
 addEventListener('resize',()=>{setMode();setTimeout(fit,30);draw('cA',F.cA.p);draw('cB',F.cB.p)});
-const cp=$('#copy');cp&&cp.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('+7 921 343-43-37');cp.textContent='Скопировано ✓'}catch(e){cp.textContent='+7 921 343-43-37'}setTimeout(()=>cp.textContent='Скопировать номер',2200)});
+const cp=$('#copy');cp&&cp.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('+7 921 408-85-98');cp.textContent='Скопировано ✓'}catch(e){cp.textContent='+7 921 408-85-98'}setTimeout(()=>cp.textContent='Скопировать номер',2200)});
 /* ---- персональная ссылка ?d=Название ---- */
-(function(){let n='';try{n=(new URLSearchParams(location.search).get('d')||'').trim().slice(0,40)}catch(e){}
+try{(function(){let n='';try{n=(new URLSearchParams(location.search).get('d')||'').trim().slice(0,40)}catch(e){}
  if(!n)return;document.title='DROPDEALER — для '+n;
- const a=$('#eb1'),b=$('#eb8');if(a)a.textContent='презентация для «'+n+'»';if(b)b.textContent=n+', готовы начать?'})();
+ const a=$('#eb1'),b=$('#eb8');if(a)a.textContent='презентация для «'+n+'»';if(b)b.textContent=n+', готовы начать?'})()}catch(e){}
 /* ---- калькулятор ---- */
 const cc={price:850000,cars:10};
 function tw(el,to,pre,suf,from){const t0=performance.now(),a=from==null?(el._v||0):from;el._k=t0;
@@ -112,10 +112,10 @@ function calcUpd(_,reset){const per=Math.round(cc.price*50/850/1000)*1000,m=per*
  $('#vP').textContent=fmt(cc.price)+' ₽';$('#vC').textContent=cc.cars;
  const P=$('#rgP'),C=$('#rgC');P.style.setProperty('--p',((cc.price-P.min)/(P.max-P.min)*100)+'%');C.style.setProperty('--p',((cc.cars-C.min)/(C.max-C.min)*100)+'%');
  tw($('#rM'),m,'+',' ₽',reset?0:null);$('#rY').textContent='≈ '+fmt(m*12)+' ₽ в год';$('#rPer').textContent='+'+fmt(per)+' ₽ с одной машины'}
-$('#rgP').addEventListener('input',e=>{cc.price=+e.target.value;calcUpd()});
+try{$('#rgP').addEventListener('input',e=>{cc.price=+e.target.value;calcUpd()});
 $('#rgC').addEventListener('input',e=>{cc.cars=+e.target.value;calcUpd()});
 ['pointerup','touchend','change'].forEach(ev=>$$('.calc input').forEach(i=>i.addEventListener(ev,()=>setTimeout(()=>i.blur(),50))));
-calcUpd(0,true);
+calcUpd(0,true);}catch(e){}
 /* ---- живой тикер ---- */
 let LOTS=(window.LOTS0||[]);
 const tf=ms=>{if(ms<=0)return'завершён';const s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor(s%3600/60),c=s%60;return(h?h+':'+String(m).padStart(2,'0'):m)+':'+String(c).padStart(2,'0')};
@@ -123,8 +123,8 @@ function tickRender(){const now=Date.now(),L=LOTS.filter(x=>new Date(x.e).getTim
  const one=L.length?L.map(x=>{const t=x.t.length>30?x.t.slice(0,29)+'…':x.t;return `<span class="ti"><b></b><strong>${t.replace(/</g,'&lt;')}</strong>${x.c?`<i>${x.c.replace(/</g,'&lt;')}</i>`:''}<em>${fmt(x.p)} ₽</em><u data-e="${x.e}">ещё ${tf(new Date(x.e)-now)}</u></span>`}).join(''):`<span class="ti"><b></b><strong>Новые аукционы каждый день</strong><i>app.dropdealer.ru</i></span><span class="ti"><b></b><strong>Торги идут в приложении, MAX и Telegram</strong></span>`;
  tt.innerHTML=one+one;tt.style.setProperty('--dur',Math.max(24,(L.length||2)*7)+'s')}
 function tickTime(){const now=Date.now();let exp=false;$$('#tt u').forEach(u=>{const d=new Date(u.dataset.e)-now;if(d<=0)exp=true;u.textContent='ещё '+tf(d)});if(exp)tickRender()}
-tickRender();setInterval(tickTime,1000);
+try{tickRender();setInterval(tickTime,1000);}catch(e){}
 async function tickLoad(){if(location.protocol==='file:')return;try{const r=await fetch('lots.json?'+Date.now(),{cache:'no-store'});if(!r.ok)return;const j=await r.json();if(Array.isArray(j)&&j.length){LOTS=j;tickRender()}}catch(e){}}
-tickLoad();setInterval(tickLoad,300000);
+try{tickLoad();setInterval(tickLoad,300000);}catch(e){}
 setMode();slides[0].classList.add('cur');
 (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{fit();setTimeout(()=>activate(0),150)});
