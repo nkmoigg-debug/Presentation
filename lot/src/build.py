@@ -59,6 +59,11 @@ BTN={'ПРИЛОЖЕНИЕ':'ПЕРЕЙТИ В ПРИЛОЖЕНИЕ','MAX':'ПЕ
 def phone(name,c,pd):
     return f'<a class="phone {c}" href="{LINKS[name]}" target="_blank" rel="noopener" aria-label="Открыть: {name}" style="--pd:{pd}s"><div class="ph-in"><div class="ph-top"><span class="pn">{name}</span><i class="live"><s></s>LIVE</i></div><div class="ph-img"><img src="{ICO[name]}" alt=""></div><div class="ph-ln"></div><div class="ph-ln s"></div><div class="ph-btn">{BTN[name]}</div></div></a>'
 
+def sit(i,tag,title,steps,note,d,kind=''):
+    li=''.join(f'<li><i>{k+1}</i><span>{s}</span></li>' for k,s in enumerate(steps))
+    nt=f'<div class="nt">{note}</div>' if note else ''
+    return f'<div class="sit {kind} rv" style="--d:{d:.2f}s"><div class="tg">{tag}</div><h3>{title}</h3><ol>{li}</ol>{nt}</div>'
+
 S=[]
 # 1. авто
 DESC='Один владелец, обслуживалась у дилера. Кузов без ДТП, есть мелкие царапины на заднем бампере. По диагностике двигатель и АКПП без замечаний.'
@@ -111,6 +116,14 @@ S.append(f'''<section class="sl" id="sD"><div class="in two big"><div class="lt"
 <div class="shot sstack" style="--d:.45s"><img class="on" src="{img('infotop')}" alt="Карточка лота: информация"><img src="{img('bids')}" alt="Карточка лота: ставки"></div></div>
 </div></section>''')
 # 5. памятка
+S.append(f'''<section class="sl" id="sN"><div class="in">
+<div class="eyebrow rv">Если что-то пошло не так</div>
+{H([["Нестандартные"],[("ситуации.","g")]],.1)}
+<div class="sgrid">
+{sit(1,"Ситуация 1","Лот не сыграл",["Снизьте цену на 10 000 ₽","Перезапустите не на час, а на 5–6 или 12 часов, а лучше на сутки"],"Автомобиль уже выкуплен, а мы зарабатываем, а не соревнуемся в скорости. Сутки дают максимум охвата, так делает большинство компаний",.4)}
+{sit(2,"Ситуация 2","Перекуп отказался без причины",["Напишите в техподдержку","Отправьте недобросовестного участника в бан, чтобы он не мешал на будущих торгах"],"",.55,"y")}
+{sit(3,"Ситуация 3","Отказ по объективной причине",["Не перезапускайте лот сразу. Например, нашли дополнительный окрас или оказалось, что авто дымит, а об этом не было написано","Позвоните участнику со второй или третьей ставкой, опишите ситуацию и предложите авто по его цене","Если и они отказались: добавьте в лот новую информацию и перезапустите"],"",.7)}
+</div></div></section>''')
 S.append(f'''<section class="sl" id="sF"><div class="in">
 <div class="eyebrow rv">Памятка</div>
 {H([["Что","делает"],[("лот","g"),("сильным.","g")]],.1)}

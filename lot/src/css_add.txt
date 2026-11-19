@@ -73,3 +73,15 @@
 #sEnd .cta,.land #sEnd .cta{grid-template-columns:1fr;gap:3.2u}.land #sEnd .ctl2{grid-template-columns:1fr 1fr;gap:2u}#sEnd .links{margin-top:.6u}.m #sEnd .links{margin-top:2u}
 
 .adv{display:inline-block;margin-top:1.6u;background:var(--yellow);color:#111214;font-weight:800;font-size:1.05u;letter-spacing:.06em;text-transform:uppercase;border-radius:99px;padding:.7u 1.4u}.m .adv{font-size:3u;padding:1.6u 3.4u;margin-top:4u}
+
+#sN .h{font-size:3.3u}.m #sN .h{font-size:6.4u}
+.sgrid{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:1.4u;margin-top:2u}.m .sgrid{grid-template-columns:1fr;gap:2.4u;margin-top:4u}
+.sit{background:var(--soft);border-radius:1.8u;padding:1.8u;display:flex;flex-direction:column;gap:1.1u}.m .sit{border-radius:3.8u;padding:4u;gap:2.4u}
+.sit.y{background:#FFF3C2}
+.sit .tg{font-size:.8u;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.m .sit .tg{font-size:2.6u}
+.sit h3{font-family:'Unbounded';font-weight:900;font-size:1.55u;line-height:1.15;text-transform:uppercase}.m .sit h3{font-size:4.6u}
+.sit ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1u}.m .sit ol{gap:2.2u}
+.sit li{display:flex;gap:.9u;align-items:flex-start}.m .sit li{gap:2.4u}
+.sit li i{flex:none;width:2.2u;height:2.2u;border-radius:50%;background:var(--green);color:#111214;font-style:normal;font-weight:800;font-size:1.05u;display:grid;place-items:center}.m .sit li i{width:6u;height:6u;font-size:3u}
+.sit li span{font-size:1.12u;line-height:1.35}.m .sit li span{font-size:3.3u}
+.sit .nt{margin-top:auto;background:var(--yellow);border-radius:1.2u;padding:1u 1.2u;font-size:1u;line-height:1.35;font-weight:500}.m .sit .nt{border-radius:3u;padding:2.6u 3u;font-size:3u}
