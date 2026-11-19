@@ -71,3 +71,5 @@
 #sEnd .links{margin-top:2.2u}
 
 #sEnd .cta,.land #sEnd .cta{grid-template-columns:1fr;gap:3.2u}.land #sEnd .ctl2{grid-template-columns:1fr 1fr;gap:2u}#sEnd .links{margin-top:.6u}.m #sEnd .links{margin-top:2u}
+
+.adv{display:inline-block;margin-top:1.6u;background:var(--yellow);color:#111214;font-weight:800;font-size:1.05u;letter-spacing:.06em;text-transform:uppercase;border-radius:99px;padding:.7u 1.4u}.m .adv{font-size:3u;padding:1.6u 3.4u;margin-top:4u}

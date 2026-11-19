@@ -53,6 +53,12 @@ def shot(name,alt,pins='',extra='',d=.3):
 def step(sid,eb,h,items,pic):
     return f'<section class="sl" id="{sid}"><div class="in two big"><div class="lt"><div class="eyebrow rv">{eb}</div>{h}{leg(items)}</div>{pic}</div></section>'
 
+ICO={'ПРИЛОЖЕНИЕ':open('ico_l.txt').read(),'MAX':open('ico_mm.txt').read(),'TELEGRAM':open('ico_r.txt').read()}
+LINKS={'ПРИЛОЖЕНИЕ':'https://app.dropdealer.ru','MAX':'https://max.ru/join/2rA2kvRL6sa1yu-Qorso-G_hOcH6ofVObEl90T9q0vI','TELEGRAM':'https://t.me/dropdealerofficial'}
+BTN={'ПРИЛОЖЕНИЕ':'ПЕРЕЙТИ В ПРИЛОЖЕНИЕ','MAX':'ПЕРЕЙТИ В MAX','TELEGRAM':'ПЕРЕЙТИ В TG'}
+def phone(name,c,pd):
+    return f'<a class="phone {c}" href="{LINKS[name]}" target="_blank" rel="noopener" aria-label="Открыть: {name}" style="--pd:{pd}s"><div class="ph-in"><div class="ph-top"><span class="pn">{name}</span><i class="live"><s></s>LIVE</i></div><div class="ph-img"><img src="{ICO[name]}" alt=""></div><div class="ph-ln"></div><div class="ph-ln s"></div><div class="ph-btn">{BTN[name]}</div></div></a>'
+
 S=[]
 # 1. авто
 DESC='Один владелец, обслуживалась у дилера. Кузов без ДТП, есть мелкие царапины на заднем бампере. По диагностике двигатель и АКПП без замечаний.'
@@ -64,6 +70,13 @@ t1=(ty('s1',(152,1088,582,1130),'Hyundai',0,70)+ty('s1',(607,1088,1037,1130),'So
    +ty('s1',(985,1466,1041,1494),'',9,0,'ctr').replace('data-t=""','data-t="" id="ctr1"').replace('></div>','>0/452</div>')
    +ty('s1',(152,1638,1037,1680),'https://autoteka.ru/report/6c1f2e8a',4,38))
 t1=re.sub(r'(<div class="ty area" data-b="3" data-t="[^"]*" data-s="26")',r'\1 data-ctr="ctr1"',t1)
+S.append(f'''<section class="sl" id="s1"><div class="in">
+<div class="eyebrow rv"><i class="live"><s></s>ANDROID И iOS</i> · приложение дилера</div>
+<h1 class="h h1"><span class="w bk"><span style="--d:.15s">Лот</span></span> <span class="w"><span style="--d:.24s">с</span></span> <span class="w"><span style="--d:.3s">телефона.</span></span></h1>
+<p class="sub rv" style="--d:.7s">Заносите лот с телефона, а следите за торгами где угодно. Приложение работает на Android и iOS, и на телефоне так же быстро и удобно. Не нужно бежать к компьютеру: сфотографировали в ремзоне, на улице или в шоуруме и сразу занесли лот. Ставки видны в приложении, MAX и Telegram.</p>
+<div class="adv rv" style="--d:.9s">Наше главное преимущество</div>
+<div class="phones"><div class="tapnote rv" style="--d:1.1s"><svg viewBox="0 0 24 24"><path d="M12 4v14M6 12l6 6 6-6"/></svg>Кликабельно — нажми на кнопку</div>{phone("ПРИЛОЖЕНИЕ","l",.7)}{phone("MAX","mm",.9)}{phone("TELEGRAM","r",1.1)}</div>
+</div></section>''')
 S.append(step('sA','Шаг 1 из 3 · Авто',H([["Данные","об"],["автомобиле."]],.1),
  [("Марка, модель, год","Заполняйте с клавиатуры: например, Hyundai и Solaris. Год выберите из списка",True),
   ("VIN","Номер из документов на автомобиль",True),
