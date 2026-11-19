@@ -142,10 +142,11 @@ S.append(f'''<section class="sl" id="s7"><div class="in tw">
 S.append(f'''<section class="sl dark" id="s8"><div class="in cta">
 <div><div class="eyebrow rv" id="eb8">Готовы начать?</div>
 {H([["Подключим"],["за",("30","g"),("минут.","g")]],.1)}
-<p class="sub rv" style="--d:.5s">Напишите или позвоните: менеджер создаст кабинет, обучит команду, и сегодня вы уже на торгах.</p>
+<div class="person rv" style="--d:.45s"><img src="{BORIS}" alt="Борис Мухин"><div><b>Борис Мухин</b><span>Бизнес-консультант практик · Собственник</span><small>Более 25 лет операционного управления в автобизнесе</small></div></div>
 <div class="btns rv" style="--d:.7s"><a class="btn" href="tel:+79214088598">+7 921 408-85-98</a><button class="btn gh" id="copy">Скопировать номер</button></div>
 <div class="links rv" style="--d:.8s"><a href="https://app.dropdealer.ru" target="_blank" rel="noopener"><small>ПРИЛОЖЕНИЕ</small>app.dropdealer.ru</a><a href="https://dropdealer.ru" target="_blank" rel="noopener"><small>САЙТ</small>dropdealer.ru</a><span><small>ПОЧТА</small>dropdealerspb@gmail.com</span></div>
-<div class="person rv" style="--d:.95s"><img src="{BORIS}" alt="Борис Мухин"><div><b>Борис Мухин</b><span>Бизнес-консультант практик · Собственник</span><small>Более 25 лет операционного управления в автобизнесе</small></div></div>
+<p class="sub sub2 rv" style="--d:.95s">Напишите или позвоните: менеджер создаст кабинет, обучит команду, и сегодня вы уже на торгах.</p>
+
 </div>
 <div class="orb rv" style="--d:.4s"><i></i><i></i><i></i><b><span data-to="30">0</span><small>МИНУТ</small></b></div>
 </div></section>''')
