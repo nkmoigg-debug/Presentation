@@ -309,5 +309,4 @@ small.pb{display:inline-block;margin-left:.9u;background:var(--green);color:var(
 
 /* слайд 2: статичный, без движения */
 #s2 .rv{transform:none;transition:opacity .35s ease;transition-delay:0s!important}
-#s2 .fieldw{display:none}
 #s2 .badge{transform:translate(-50%,-50%) scale(1) rotate(-3deg);transition:none}
