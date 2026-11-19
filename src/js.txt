@@ -139,4 +139,4 @@ function prologue(done){let end=false;const el=document.createElement('div');el.
 (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{fit();setTimeout(()=>{const h=location.hash.slice(1),k=h==='last'?N-1:(/^\d+$/.test(h)?Math.min(N,Math.max(1,+h))-1:0);
  const run=()=>{activate(0);if(k>0)setTimeout(()=>go(k),700)};
  let reduce=false;try{reduce=matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
- if(k>0||reduce)run();else prologue(run)},150)});
+ run()},150)});
