@@ -84,7 +84,12 @@ async function zoom(a,b,dir){const na=slides[a],nb=slides[b],o=dir>0?[2.6,.5]:[.
  await wait(340);nb.style.opacity='';activate(b);
  const p2=an(nb,[{transform:`scale(${o[1]})`,opacity:0,filter:'blur(12px)'},{transform:'scale(1)',opacity:1,filter:'blur(0)'}],{duration:820,easing:'cubic-bezier(.15,.7,.2,1)'});
  await Promise.all([p1,p2]);fin(a,b)}
-const FX=[circle,circle,circle,circle,circle,circle,circle,circle];
+async function soft(a,b,dir){const y=isY(),na=slides[a],nb=slides[b],d=dir>0?1:-1,t=y?'translateY(':'translateX(';
+ nb.classList.add('vis','top');setTimeout(()=>activate(b),90);
+ na.animate([{opacity:1},{opacity:0}],{duration:260,easing:'ease-out',fill:'both'});
+ await nb.animate([{opacity:0,transform:t+(d*5)+'%)'},{opacity:1,transform:'none'}],{duration:380,easing:'cubic-bezier(.2,.8,.2,1)',fill:'both'}).finished;
+ fin(a,b)}
+const FX=Array(8).fill(soft);
 async function go(n){if(busy||n<0||n>=N||n===cur)return;busy=true;if(!moved){moved=true;app.classList.add('moved')}
  const a=cur,dir=n>a?1:-1;try{await FX[Math.min(a,n)](a,n,dir)}catch(e){fin(a,n)}
  await wait(60);busy=false}

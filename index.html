@@ -14,10 +14,10 @@ body.frame #app{width:min(100vw,calc((100svh - 28px)*.5));height:calc(100svh - 2
 #app.land{--u:min(1cqw,1.7778cqh);--h1:calc(var(--u)*6.3);--h2:calc(var(--u)*4);--t:calc(var(--u)*1.3);--s:calc(var(--u)*1.02);--px:calc(var(--u)*6);--pt:calc(var(--u)*7.2);--pb:calc(var(--u)*4.2);--pw:calc(var(--u)*12.5)}
 #app.m{--u:min(1cqw,.5625cqh);--h1:calc(var(--u)*7.6);--h2:calc(var(--u)*6);--t:calc(var(--u)*3.7);--s:calc(var(--u)*3.1);--px:calc(var(--u)*6);--pt:calc(var(--u)*13);--pb:calc(var(--u)*8);--pw:calc(var(--u)*29)}
 .u{font-family:'Unbounded',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-.01em}
-#stage{position:absolute;inset:0;perspective:1800px}
+#stage{position:absolute;inset:0}
 .sl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:var(--pt) var(--px) var(--pb);visibility:hidden;background:var(--paper);overflow:hidden}
 .sl.cur,.sl.vis{visibility:visible}.sl.top{z-index:3}
-.sl::before,.sl::after{content:"";position:absolute;border-radius:50%;filter:blur(calc(var(--u)*7));pointer-events:none;opacity:.42;animation:drift 14s ease-in-out infinite alternate}
+.sl::before,.sl::after{content:"";position:absolute;border-radius:50%;filter:blur(calc(var(--u)*7));pointer-events:none;opacity:.42}
 .sl::before{width:calc(var(--u)*48);height:calc(var(--u)*48);background:var(--green);left:calc(var(--u)*-14);top:calc(var(--u)*-12)}
 .sl::after{width:calc(var(--u)*40);height:calc(var(--u)*40);background:var(--yellow);right:calc(var(--u)*-12);bottom:calc(var(--u)*-12);animation-delay:-5s}
 .m .sl::before{width:calc(var(--u)*90);height:calc(var(--u)*90);left:calc(var(--u)*-30);top:calc(var(--u)*-26)}.m .sl::after{width:calc(var(--u)*80);height:calc(var(--u)*80);right:calc(var(--u)*-30);bottom:calc(var(--u)*-24)}
@@ -265,7 +265,7 @@ small.pb{display:inline-block;margin-left:calc(var(--u)*.9);background:var(--gre
 .cres .per{align-self:flex-start;background:var(--green);color:#111;border-radius:99px;padding:calc(var(--u)*.55) calc(var(--u)*1.2);font-weight:800;font-size:calc(var(--u)*1.05)}.m .cres .per{padding:calc(var(--u)*1.4) calc(var(--u)*3);font-size:calc(var(--u)*3)}
 .calcnote{margin-top:calc(var(--u)*1.2);color:var(--muted);font-size:calc(var(--u)*.95);line-height:1.4}.m .calcnote{margin-top:calc(var(--u)*3.4);font-size:calc(var(--u)*2.7)}
 /* ===== тикер ===== */
-.tick{position:absolute;z-index:6;left:0;right:0;display:flex;align-items:center;gap:calc(var(--u)*1.4);border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line);background:rgba(255,255,255,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow:hidden}
+.tick{position:absolute;z-index:6;left:0;right:0;display:flex;align-items:center;gap:calc(var(--u)*1.4);border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line);background:rgba(255,255,255,.95);overflow:hidden}
 .land .tick{bottom:calc(var(--u)*5.2);padding:calc(var(--u)*.9) 0 calc(var(--u)*.9) calc(var(--u)*3.2)}.m .tick{bottom:calc(var(--u)*12);padding:calc(var(--u)*2.2) 0 calc(var(--u)*2.2) calc(var(--u)*5);gap:calc(var(--u)*3)}
 .tl{flex:none;display:flex;align-items:center;gap:calc(var(--u)*.6);font-family:'Unbounded';font-weight:900;font-size:calc(var(--u)*.95);letter-spacing:.06em}.m .tl{font-size:calc(var(--u)*2.8);gap:calc(var(--u)*1.4)}
 .tl s{width:calc(var(--u)*.8);height:calc(var(--u)*.8);border-radius:50%;background:#FF4B4B;display:block;animation:tpulse 1.4s ease-in-out infinite}.m .tl s{width:calc(var(--u)*2);height:calc(var(--u)*2)}
@@ -285,7 +285,12 @@ small.pb{display:inline-block;margin-left:calc(var(--u)*.9);background:var(--gre
 
 .sub2{margin-top:calc(var(--u)*1.8)}.m .sub2{margin-top:calc(var(--u)*4)}
 
-.nav a{position:relative}.nav a::after{content:'';position:absolute;inset:calc(var(--u)*-1.6) calc(var(--u)*-1.6)}.m .nav a::after{inset:calc(var(--u)*-1.1) calc(var(--u)*-4)}.m .nav{gap:calc(var(--u)*2.6)}.m .nav a{width:calc(var(--u)*2.2);height:calc(var(--u)*2.2)}
+
+.nav,.nav a{-webkit-tap-highlight-color:transparent;outline:none;user-select:none;-webkit-user-select:none}
+.nav a{position:relative}.nav a::after{content:'';position:absolute;inset:calc(var(--u)*-.55) calc(var(--u)*-1.1)}
+.land .nav{gap:calc(var(--u)*2.2)}
+.m .nav{gap:calc(var(--u)*7)}.m .nav a{width:calc(var(--u)*2.2);height:calc(var(--u)*2.2)}.m .nav a::after{inset:calc(var(--u)*-2.4) calc(var(--u)*-4.5)}
+.nav a:active{background:var(--green);transform:scale(1.9)}
 </style><noscript><style>html,body{height:auto!important;overflow:auto!important}body{display:block!important}
 #app,#app.m,#app.land{--u:1cqw!important;position:static!important;width:100%!important;max-width:560px;margin:0 auto;height:auto!important;container-type:inline-size;overflow:visible!important}
 #stage{position:static!important;perspective:none!important}
@@ -409,7 +414,7 @@ small.pb{display:inline-block;margin-left:calc(var(--u)*.9);background:var(--gre
 <nav class="nav"><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a></nav>
 <div class="pgb"><i id="pg"></i></div>
 </div>
-<script>window.LOTS0=[{"t": "Granta Cross 23 год", "c": "Тольятти", "p": 595000, "e": "2026-11-19T11:35:01.712Z"}, {"t": "Niva Legend Sport 25г", "c": "Тольятти", "p": 1350000, "e": "2026-11-19T11:45:02.213Z"}, {"t": "KIA CEE D, 2008 1.6 АТ", "c": "Санкт-Петербург", "p": 315000, "e": "2026-11-19T11:45:04.421Z"}, {"t": "Niva Travel 23г", "c": "Тольятти", "p": 830000, "e": "2026-11-19T11:55:02.690Z"}, {"t": "Chevrolet Aveo 2007", "c": "Санкт-Петербург", "p": 155000, "e": "2026-11-19T12:05:00.000Z"}, {"t": "Niva Travel 24г", "c": "Тольятти", "p": 875000, "e": "2026-11-19T12:05:03.131Z"}, {"t": "Renault Scenic III Рестайлинг 2, 2014  1.6 MT (110 л.с.), Expression", "c": "Санкт-Петербург", "p": 208000, "e": "2026-11-19T12:15:01.257Z"}, {"t": "Hyundai Matrix '2007", "c": "Санкт-Петербург", "p": 110000, "e": "2026-11-19T12:20:03.172Z"}, {"t": "Nissan QASHQAI , 2011 1.6 МТ", "c": "Санкт-Петербург", "p": 580000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Peugeot 307 , 2006  1.6 АТ", "c": "Санкт-Петербург", "p": 205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "KIA CEE D , 2016 1.6 АМТ", "c": "Санкт-Петербург", "p": 905000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Hyundai TUCSON , 2021 2.0 АТ", "c": "Санкт-Петербург", "p": 2205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Skoda Octavia, II (A5) Рестайлинг, 2011 1.8 АМТ", "c": "Санкт-Петербург", "p": 500000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Niva Legend '2022/Lada (ВАЗ) Vesta '2024/Lada (ВАЗ) Vesta '2024", "c": "Москва", "p": 3020000, "e": "2026-11-19T14:35:02.156Z"}]</script><script>const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+<script>window.LOTS0=[{"t": "Granta Cross 23 год", "c": "Тольятти", "p": 595000, "e": "2026-11-19T11:35:01.712Z"}, {"t": "Niva Legend Sport 25г", "c": "Тольятти", "p": 1350000, "e": "2026-11-19T11:45:02.213Z"}, {"t": "KIA CEE D, 2008 1.6 АТ", "c": "Санкт-Петербург", "p": 320000, "e": "2026-11-19T11:45:04.421Z"}, {"t": "Niva Travel 23г", "c": "Тольятти", "p": 830000, "e": "2026-11-19T11:55:02.690Z"}, {"t": "Chevrolet Aveo 2007", "c": "Санкт-Петербург", "p": 155000, "e": "2026-11-19T12:05:00.000Z"}, {"t": "Niva Travel 24г", "c": "Тольятти", "p": 875000, "e": "2026-11-19T12:05:03.131Z"}, {"t": "Renault Scenic III Рестайлинг 2, 2014  1.6 MT (110 л.с.), Expression", "c": "Санкт-Петербург", "p": 208000, "e": "2026-11-19T12:15:01.257Z"}, {"t": "Hyundai Matrix '2007", "c": "Санкт-Петербург", "p": 110000, "e": "2026-11-19T12:20:03.172Z"}, {"t": "Nissan QASHQAI , 2011 1.6 МТ", "c": "Санкт-Петербург", "p": 580000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Peugeot 307 , 2006  1.6 АТ", "c": "Санкт-Петербург", "p": 205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "KIA CEE D , 2016 1.6 АМТ", "c": "Санкт-Петербург", "p": 905000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Hyundai TUCSON , 2021 2.0 АТ", "c": "Санкт-Петербург", "p": 2205000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Skoda Octavia, II (A5) Рестайлинг, 2011 1.8 АМТ", "c": "Санкт-Петербург", "p": 500000, "e": "2026-11-19T13:05:00.000Z"}, {"t": "Niva Legend '2022/Lada (ВАЗ) Vesta '2024/Lada (ВАЗ) Vesta '2024", "c": "Москва", "p": 3020000, "e": "2026-11-19T14:35:02.156Z"}]</script><script>const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const app=$('#app'),stage=$('#stage'),fx=$('#fx'),slides=$$('.sl'),N=slides.length,dots=$$('.nav a');
 const E='cubic-bezier(.7,0,.2,1)',wait=ms=>new Promise(r=>setTimeout(r,ms));
 let cur=0,busy=false,forced=null,moved=false;
@@ -495,7 +500,12 @@ async function zoom(a,b,dir){const na=slides[a],nb=slides[b],o=dir>0?[2.6,.5]:[.
  await wait(340);nb.style.opacity='';activate(b);
  const p2=an(nb,[{transform:`scale(${o[1]})`,opacity:0,filter:'blur(12px)'},{transform:'scale(1)',opacity:1,filter:'blur(0)'}],{duration:820,easing:'cubic-bezier(.15,.7,.2,1)'});
  await Promise.all([p1,p2]);fin(a,b)}
-const FX=[circle,circle,circle,circle,circle,circle,circle,circle];
+async function soft(a,b,dir){const y=isY(),na=slides[a],nb=slides[b],d=dir>0?1:-1,t=y?'translateY(':'translateX(';
+ nb.classList.add('vis','top');setTimeout(()=>activate(b),90);
+ na.animate([{opacity:1},{opacity:0}],{duration:260,easing:'ease-out',fill:'both'});
+ await nb.animate([{opacity:0,transform:t+(d*5)+'%)'},{opacity:1,transform:'none'}],{duration:380,easing:'cubic-bezier(.2,.8,.2,1)',fill:'both'}).finished;
+ fin(a,b)}
+const FX=Array(8).fill(soft);
 async function go(n){if(busy||n<0||n>=N||n===cur)return;busy=true;if(!moved){moved=true;app.classList.add('moved')}
  const a=cur,dir=n>a?1:-1;try{await FX[Math.min(a,n)](a,n,dir)}catch(e){fin(a,n)}
  await wait(60);busy=false}
